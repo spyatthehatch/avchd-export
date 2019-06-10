@@ -2,6 +2,10 @@
 ## About
 This is a bash script to export MTS files from AVCHD and losslessly convert them to mp4 files.  It requires FFMPEG to convert MTS files to mp4 files.  This will loop through all MTS files in an Sorry PC users, this solution is for Mac OSX only!
 
+## The Easy Way
+Watch the youtube video for instructions on how to install and use the avchd-export.bsh script:
+https://www.youtube.com/channel/UC5V6s5bXc8nI7FU9PKIya8Q
+
 ## Installation
 1. Download FFMPEG at https://evermeet.cx/ffmpeg/.<br>
 2. Or, if that URL makes you nervous: https://ffmpeg.org/download.html#build-mac, click the Apple icon and choose "Static builds for macOS 64-bit."  You'll see that we're at the URL in Step 1, but whatever.
