@@ -1,0 +1,80 @@
+#!/bin/bash
+# ------------------------------------------------------------------------------
+# Spy at the Hatch
+# June 5, 2019
+# San Diego, CA
+# ------------------------------------------------------------------------------
+# Update this to the location of your FFMPEG, use the full path!
+FFMPEG="/Applications/FFMPEG/ffmpeg"
+
+LOG="avchd-export.log"
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+
+echo "[*] AVCHD Export Tool start."
+echo "[ ] Developed by Spy at the Hatch." 
+echo "[ ] June 5, 2019.  San Diego, CA."
+
+# Print the usage of this script.
+function print_usage {
+   echo "[!] This script requires more information.  Please read below."
+   echo "[ ]"
+   echo "[ ] The AVCHD Export Tool will export all MTS files from your AVCHD collection"
+   echo "[ ] and convert them to MP4 format using the same codecs native to the AVCHD file,"
+   echo "[ ] resulting in a lossless file conversion."
+   echo "[ ]"
+   echo "[ ] To use this script, you must download FFMPEG and update the FFMPEG variable"
+   echo "[ ] with its full path location."
+   echo "[ ]"
+   echo "[ ] Execute this script by ./avchd-export.bsh [Input Directory] [Output Directory]"
+   echo "[ ]"
+   echo "[ ] For example:"
+   echo "[ ] ./avchd-export.bsh /Applications/FFMPEG/ffmpeg /Users/spyatthehatch/Desktop/output"
+}
+
+# If the input directory was not passed as an argument, print the usage then quit.
+if [ -z $INPUT_DIR ]; then
+   print_usage
+   exit 1
+fi
+
+# If the output directory was not passed as an argument, set as the default.
+if [ -z $OUTPUT_DIR ]; then
+   echo "[!] The output directory was not specified, using default avchd-export directory."
+   OUTPUT_DIR="avchd-export"
+fi
+
+# Check that FFMPEG binary exists.
+if [ ! -f $FFMPEG ]; then
+   echo "[!] FFMPEG does not exist in the configured location."
+   echo "[ ] Please update the FFMPEG variable and try again."
+   exit 2
+fi
+
+# Check that the input directory exists.
+if [ ! -d $INPUT_DIR ]; then
+   echo "[!] The configured input directory does not exist."
+   echo "[ ] Please update the INPUT_DIR variable and try again."
+   exit 3
+fi
+
+# Check that the output directory exists.  If it doesn't make it.
+if [ ! -d $OUTPUT_DIR ]; then
+   echo "[!] The configured output directory $OUTPUT_DIR does not exist."
+   echo "[ ] Creating output directory."
+   mkdir $OUTPUT_DIR
+fi
+
+# For each file in the input directory, convert to mp4 using the native video/audio codecs.
+for file in `ls $INPUT_DIR/*.MTS | xargs -n 1 basename`
+do
+   name=`echo $file | awk -F '.' '{print $1}'`
+   echo "[ ] Exporting file: $INPUT_DIR/$file"
+   $FFMPEG -i $INPUT_DIR/$file -vcodec copy -acodec copy $OUTPUT_DIR/$name.mp4 >> $OUTPUT_DIR/$LOG 2>&1
+done
+
+# Finished processing the files, exit.
+echo "[ ] Output messages are logged in file: $OUTPUT_DIR/$LOG"
+echo "[ ] AVCHD Export Tool complete."
+exit 0
+
