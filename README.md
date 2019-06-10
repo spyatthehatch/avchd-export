@@ -3,12 +3,12 @@
 This is a bash script to export MTS files from AVCHD and losslessly convert them to mp4 files.  It requires FFMPEG to convert MTS files to mp4 files.  This will loop through all MTS files in an Sorry PC users, this solution is for Mac OSX only!
 
 ## Installation
-1. Download FFMPEG at https://evermeet.cx/ffmpeg/.
-1B. Or, if that URL makes you nervous: https://ffmpeg.org/download.html#build-mac, click the Apple icon and choose "Static builds for macOS 64-bit."  You'll see that we're at the URL in Step 1, but whatever.
-2. Download either the release or snapshot as a DMG. Which should you choose?  It's up to you.  The release will be more stable (potentially), but the snapshot will have bug fixes.  Between you and I, I chose the release version.  Just remember, "Download as DMG."
-3. Create a new directory called, "FFMPEG" in your Applications directory.  Open the DMG file and drag the ffmpeg file into your new directory.  When done, it should be located at /Applications/FFMPEG/ffmpeg.
-4. Download the avchd-export.bsh script to wherever your little heart desires.
-5. If you decided not to listen to Step 3 and put the ffmpeg binary at some other location, update the FFMPEG variable in the avchd-export script (read the comments).
+1. Download FFMPEG at https://evermeet.cx/ffmpeg/.<br>
+2. Or, if that URL makes you nervous: https://ffmpeg.org/download.html#build-mac, click the Apple icon and choose "Static builds for macOS 64-bit."  You'll see that we're at the URL in Step 1, but whatever.
+3. Download either the release or snapshot as a DMG. Which should you choose?  It's up to you.  The release will be more stable (potentially), but the snapshot will have bug fixes.  Between you and I, I chose the release version.  Just remember, "Download as DMG."
+4. Create a new directory called, "FFMPEG" in your Applications directory.  Open the DMG file and drag the ffmpeg file into your new directory.  When done, it should be located at /Applications/FFMPEG/ffmpeg.
+5. Download the avchd-export.bsh script to wherever your little heart desires.
+6. If you decided not to listen to Step 3 and put the ffmpeg binary at some other location, update the FFMPEG variable in the avchd-export script (read the comments).
 
 ## Usage
 The script is executed as:
