@@ -4,7 +4,7 @@ This is a bash script to export MTS files from AVCHD and losslessly convert them
 
 ## The Easy Way
 Watch the youtube video for instructions on how to install and use the avchd-export.bsh script:
-https://www.youtube.com/channel/UC5V6s5bXc8nI7FU9PKIya8Q
+https://www.youtube.com/watch?v=bA875TJR0Zs
 
 ## Installation
 1. Download FFMPEG at https://evermeet.cx/ffmpeg/.<br>
